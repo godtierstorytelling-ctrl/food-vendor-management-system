@@ -1,5 +1,12 @@
 # Food Vendor Management System
 
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57)
+![OOP](https://img.shields.io/badge/OOP-Object--Oriented-green)
+![CRUD](https://img.shields.io/badge/CRUD-Application-orange)
+![Portfolio Project](https://img.shields.io/badge/Portfolio-Project-purple)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
+
 A Python-based food ordering and management application built to demonstrate object-oriented programming, relational database design, CRUD operations, user authentication, automated receipt generation, and multi-class application architecture.
 
 The project was originally developed as a software development capstone and later documented as a portfolio project to showcase the engineering process behind building, testing, and debugging a complete backend application.
