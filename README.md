@@ -82,32 +82,24 @@ The application uses an in-memory SQLite database populated from tab-separated d
 
 ```text
 food-vendor-management-system/
-│
-├── FoodVendor.py
-├── Users.py
-├── DbManager.py
-├── Menu.py
-│
-├── menu.tsv
-├── user.tsv
-│
-├── tests/
-│   ├── test_create_receipt.py
-│   ├── test_order_food.py
-│   ├── test_order_food_member.py
-│   ├── test_print_order_history.py
-│   ├── test_main_menu.py
-│   ├── test_member_menu.py
-│   ├── test_member_menu_order.py
-│   ├── test_admin_menu.py
-│   └── additional method-level tests
-│
+├── data/
+│   ├── menu.tsv
+│   └── user.tsv
 ├── docs/
 │   ├── architecture.md
 │   ├── database-schema.md
 │   └── lessons-learned.md
-│
-└── README.md
+├── receipts/
+│   └── FoodVendorReceipt1001.txt
+├── src/
+│   ├── DbManager.py
+│   ├── FoodVendor.py
+│   └── Users.py
+├── tests/
+│   └── ...
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 The exact test-file collection may vary depending on the version of the repository.
