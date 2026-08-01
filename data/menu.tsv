@@ -1,0 +1,34 @@
+category	item_name	description	price	prep_time	available
+Sandwiches	Ham	Sliced ham	13.2	10	1
+Sandwiches	Chicken salad	Grilled chicken and greens	13.7	10	1
+Sandwiches	Grilled cheese	Stovetop grilled cheese	14.2	10	0
+Sandwiches	Hamburger	Hamburger w/ lettuce & tomato	14.7	10	0
+Sandwiches	Cheeseburger	Cheeseburger w/ lettuce & tomato	15.2	10	1
+Salads	Caesar	Caeser salad and dressing	15.7	8	1
+Salads	Asian	Asian style salad	16.2	8	0
+Salads	Cajun	Cajun salad and dressing	16.7	8	1
+Salads	Garden	Fresh garden style salad	17.2	8	0
+Drinks	Water	16oz bottle of water	17.7	2	1
+Drinks	Coca-Cola	16oz bottle of Coca-Cola	18.2	2	1
+Drinks	Pepsi	16oz bottle of Pepsi	18.7	2	1
+Drinks	Sprite	16oz bottle of Sprite	19.2	2	1
+Mexican food	Chicken tacos	Hard shell grilled chicken tacos	19.7	12	0
+Mexican food	Beef tacos	Hard shell beef tacos	20.2	12	1
+Mexican food	Enchiladas	Chicken and beef enchiladas	20.7	12	1
+Mexican food	Nachos	Nachos w/ cheese	21.2	12	0
+Mexican food	Chips & salsa	Tortilla chips w/ salsa	21.7	12	1
+Vegetarian	Tofu sandwich	Fresh tofu sandwich	22.2	10	0
+Vegetarian	Avocado sandwich	Fresh avocado sandwich	22.7	10	0
+Vegetarian	Veggie hoagie	Vegetarian hoagie	23.2	10	1
+Vegetarian	Black bean soup	Hot black bean soup	23.7	5	1
+Sandwiches_option	Toasted	Oven toast the sandwich	3	0	1
+Sandwiches_option	Double meat	Double the meats	3	0	1
+Sandwiches_option	Double veggies	Double the vegetables	3	0	1
+Salads_option	Chicken	Add charbroiled chicken strips	5.99	2	1
+Salads_option	Beef	Add steak	6.99	2	1
+Salads_option	Fish	Add salmon fillets	7.99	2	1
+Mexican_option	Guacamole	Add homemade guacamole	3	0	1
+Mexican_option	Rice & beans	Add rice & beans on the side	3	0	1
+Vegetarian_option	Baked potato	Add seasoned baked potato	3	0	1
+Vegetarian_option	Fruit cup	Add fruit cup side	3	0	1
+Vegetarian_option	Corn	Add a corn on the cob	3	0	1
