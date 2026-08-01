@@ -11,6 +11,10 @@ A Python-based food ordering and management application built to demonstrate obj
 
 The project was originally developed as a software development capstone and later documented as a portfolio project to showcase the engineering process behind building, testing, and debugging a complete backend application.
 
+## Application Preview
+
+![Food Vendor Main Menu] (docs/images/Food Vendor App.png)
+
 ---
 
 ## Documentation
