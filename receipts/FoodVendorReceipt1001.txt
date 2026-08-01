@@ -1,0 +1,18 @@
+     FOOD VENDOR     
+
+
+ : Guest, Rewards: 0
+Receipt #: 1001
+Fri, 07/31/26, 11:54:21 AM
+
+Items                    Price
+--------------------------------
+Cajun                    $16.70
+Beef                     $ 6.99
+--------------------------------
+                   Total:  $23.69
+
+Credit card: xxxx xxxx xxxx 7777
+
+Your order will be ready in: 10 mins.
+Thank you for your order!
