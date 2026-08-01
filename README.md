@@ -6,6 +6,15 @@ The project was originally developed as a software development capstone and late
 
 ---
 
+## Documentation
+
+- [Application Architecture](docs/architecture.md)
+- [Database Schema](docs/database-schema.md)
+- [Lessons Learned](docs/lessons-learned.md)
+- [Screenshots](docs/screenshots.md)
+
+---
+
 ## Overview
 
 The Food Vendor Management System simulates the core operations of a small food business.
