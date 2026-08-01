@@ -5,7 +5,6 @@
 ![OOP](https://img.shields.io/badge/OOP-Object--Oriented-2E8B57)
 ![CRUD](https://img.shields.io/badge/CRUD-Application-F39C12)
 ![Portfolio Project](https://img.shields.io/badge/Portfolio-Project-8E44AD)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 A Python-based food ordering and management application built to demonstrate object-oriented programming, relational database design, CRUD operations, user authentication, automated receipt generation, and multi-class application architecture.
 
