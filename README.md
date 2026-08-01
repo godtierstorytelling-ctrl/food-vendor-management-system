@@ -413,9 +413,3 @@ The Food Vendor Management System therefore serves as both a completed backend p
 Software developer, instructional designer, and founder of god-Tier Storytelling.
 
 ---
-
-## Academic and AI Use Disclosure
-
-This application was originally developed as an academic capstone project.
-
-Generative AI tools were used during development to explain programming concepts, compare implementations with project requirements, troubleshoot runtime errors, and review code. All suggestions were critically evaluated, modified when necessary, and tested before inclusion. Responsibility for the final implementation and documentation remains with the author.
