@@ -1,0 +1,579 @@
+3.1 Capstone Project Milestone 1
+
+3.1.1: Implementing Database Manager
+
+This capstone project will simulate a food vendor application, which will maintain a food menu and user database, allow for customer ordering, as well as administrative management of customer and employee accounts.
+
+The project is divided into 3 milestones:
+
+Database setup
+User object implementations; database access
+Menu ordering integration
+
+Milestone 1
+This Milestone uses incremental programming. The autograder's unit tests will test each method individually (with the exception of Step 1's database setup methods, which will all be tested together), independent of every other method. It is recommended to submit the program after each major step (or even during a major step) so as to ensure the implemented methods each function properly.
+
+The following is the description of the dataset for the database, along with a full specification list and steps of what should be implemented in this Milestone program.
+
+Dataset Description
+A database of two tables will be initialized with two sets of data. The datasets for the database are provided in tab-separated value (.tsv) files: menu.tsv and user.tsv. The first row of the .tsv files contains the header, which contain the column names, while subsequent rows contain the values of each column. The description of the dataset for each table is as follows:
+
+menu table (menu.tsv)
+id - type INTEGER, PRIMARY KEY
+category - type TEXT, category of food item
+item_name - type TEXT, name of food item
+description - type TEXT, description of food item
+price - type DECIMAL(5,2), price of food item
+prep_time - type INTEGER, time required to prepare the food item (in minutes)
+available - type INTEGER, availability of food item in daily menu (1 = available, 0 = unavailable)
+user table (user.tsv)
+id - type INTEGER, PRIMARY KEY
+user_name - type TEXT, username of user
+account_type - type TEXT, type of user account (admin or customer)
+first_name - type TEXT, first name of user
+last_name - type TEXT, last name of user
+email - type TEXT, email address of user
+phone_number - type TEXT, phone number of user
+password - type TEXT, password of user
+employee_id - type TEXT, employee ID of admin user
+credit_card_number - type TEXT, credit card number of customer user
+credit_card_exp_date - type TEXT, expiration date of credit card of customer user
+billing_address - type TEXT, credit card billing address of customer user
+reward_points - type INTEGER, reward points earned by customer user
+order_history - type INTEGER, receipt number of last order by customer user
+Step 1: Implement database setup methods in DbManager.py
+DbManager.py contains class DbManager which allows the food vendor to create and access the database. Implement the following attributes and methods for class DbManager:
+
+Attributes
+Connection conn - Connection object that, once connected, will be used throughout the program.
+Instance methods
+Database Setup Methods
+
+connect()
+Establishes a connection to an in-memory database.
+disconnect()
+Disconnects from the existing database.
+create_menu_table(data_file)
+Reads a .tsv file and creates a table named menu.
+Calls insert_menu() to insert individual entries to the table.
+insert_menu(menu)
+Reads a menu tuple containing the column values of a menu entry (category, item_name, description, price, prep_time, availability).
+Inserts an entry into the menu table with column values listed in the parameter.
+create_user_table(data_file)
+Reads a .tsv file and creates a table named user.
+Calls insert_user() to insert individual entries into the table.
+Step 2: Implement basic FoodVendor.py
+FoodVendor.py contains class FoodVendor which controls the overall ordering system. FoodVendor.py will also be where a main method can be implemented to test the functionality of the program. FoodVendor.py has the following specifications:
+
+Attributes
+DbManager db - DbManager object that allows access to a database.
+Instance methods
+initialize(database)
+Reads a new DbManager object (database) and assigns the object to db.
+Connects to the database.
+Creates menu and user tables in the database.
+Step 3: Implement user-related methods in DbManager.py
+In DbManager.py, implement the following methods relating to the user table:
+
+User-related Methods
+
+insert_user(user)
+Reads a user a tuple containing the column values of a user entry (user_name, account, first_name, last_name, email, phone_num, password, emId, card_num, card_date, address, points, history).
+Inserts an entry into the user table with the column values listed in the parameter.
+update_customer_rewards(name, value)
+Sets a user's (whose name equals parameter name) reward points equal to parameter value.
+update_customer_history(name, value)
+Sets a user's (whose name equals parameter name) order history with parameter value.
+is_user_exist(user_name)
+Returns True if a user with name equal to parameter user_name exists in the database, otherwise returns False.
+delete_user(user_name)
+Removes entry of a user with name equal to parameter user_name from the database.
+Step 4: Implement menu-related methods in DbManager.py
+In DbManager.py, implement the following methods relating to the menu table:
+
+Menu-related Methods
+
+display_daily_menu(category)
+Displays all available food items in the menu table according to parameter category.
+Ex: If Ham, Chicken Salad, and Cheeseburger are available in the Sandwiches category, display_daily_menu("Sandwiches") will output:
+
+Sandwiches: 
+    Ham    ($5.99)
+       Sliced ham
+    Chicken salad    ($6.99)
+       Grilled chicken and greens
+    Cheeseburger    ($8.99)
+       Cheeseburger w/ lettuce & tomato
+set_food_price(name, price)
+Sets the price of the food item with parameter name to parameter price.
+set_food_category(name, category)
+Sets the category of the food item with parameter name to parameter category.
+set_food_description(name, description)
+Sets the description of the food item with parameter name to parameter description.
+set_food_availability(name, availability)
+Sets the availability of the food item with parameter name to parameter availability.
+set_food_name(old_name, new_name)
+Sets the name of the food item with parameter old_name to parameter new_name.
+get_food_price(name)
+Returns the price of the food item with parameter name. Returns -1.0 if item does not exist in the database.
+get_food_time(name)
+Returns the preparation time of the food item with parameter name. Returns -1 if item does not exist in the database.
+is_food_exist(name)
+Returns True if the food item with parameter name exists in the database, otherwise returns False.
+is_food_available(name)
+Return True if the food item with parameter name is available for daily menu, otherwise returns False.
+
+4.1 Capstone Project Milestone 2
+
+4.1.1: Implementing User Objects
+
+Milestone 2
+Copy and paste your Milestone 1 program into the respective files for this Milestone. Note that this Milestone requires a fully functioning Milestone 1 program to be able to be properly unit tested. Ensure that your Milestone 1 program passes all previous unit tests before continuing.
+
+This Milestone uses incremental programming. The autograder's unit tests will test each method individually, independent of every other method. It is recommended to submit the program after each major step (or even during a major step) so as to ensure each implemented method functions properly.
+
+As in Milestone 1, use the main method in FoodVendory.py to test the functionality of the program.
+
+Step 1: Implement User class in Users.py
+The User class is the base class for which the Admin and Customer classes will inherit from. The User class has the following specifications:
+
+Attributes
+user_name (string) - username of user
+account (string) - account type of user (admin or customer)
+first_name (string) - first name of user
+last_name (string) - last name of user
+email (string) - email address of user
+phone_num (string) - phone number of user
+password (string) - password of user
+Instance methods
+__init__(user_name, account, first_name, last_name, email, phone_num, password)
+An overloaded constructor which instantiates a User object with the listed parameters.
+Step 2: Implement Admin class in Users.py
+The Admin class extends the User class. Admin objects are used to describe users with an admin account type and has the following specifications:
+
+Attributes
+employ_id (string) - employee ID of admin user
+Instance methods
+__init__(user_name, account, first_name, last_name, email, phone_num, password, id)
+An overloaded constructor which instantiates an Admin object with the listed parameters.
+__str__()
+Returns a string representation of the Admin object.
+Ex: For an Admin object with a user_name of "JD12345", first_name of "John", last_name of "Doe", and employ_id of "12345", the __str__() method returns
+
+John Doe: JD12345, Employee ID: 12345
+Step 3: Implement Customer class in Users.py
+The Customer class extends the User class. Customer objects are used to describe users with a customer account type and has the following specifications:
+
+Attributes
+card_num (string) - credit card number of the customer
+card_date (string) - expiration date of credit card
+address (string) - billing address of the customer
+points (integer)- reward points the customer has accumulated
+history (integer)- receipt number of the customer's last order
+Instance methods
+__init__(user_name, account, first_name, last_name, email, phone_num, password, card_num, card_date, address, points, history)
+An overloaded constructor which instantiates a Customer object with the listed parameters.
+Sets user_name to "Guest" and other attributes to "" or 0 as default values if there are no parameters.
+__str__()
+Returns a string representation of the Customer object.
+Ex: For a Customer object with a user_name of "JD54321", first_name of "Jane", last_name of "Doe", and points of 999, the __str__() method returns
+
+Jane Doe: JD54321, Rewards: 999
+Step 4: Implement additional methods in DbManager.py
+Additional methods are to be implemented for the DbManager class in DbManager.py to be utilized by the classes implemented in Users.py. DbManager has the following additional specifications:
+
+update_admin(user)
+Updates the phone number and email address of the user object parameter.
+get_admin(user_name)
+Returns an Admin user in the database whose username equals the parameter user_name. If the user is not found, return an Admin user with all empty attributes ("").
+update_customer(user)
+Updates the credit card number, expiration date, billing address, phone number, and email address of the user object parameter.
+get_customer(user_name)
+Returns a Customer in the database whose username equals the parameter user_name. If the user is not found, return a Customer with all empty attributes ("").
+Step 5: Implement additional methods for the Admin and Customer classes in Users.py
+The additional methods in this step will utilize the methods implemented in DbManager.py in the previous step.
+
+Implement the following methods for the Admin class:
+update_admin_profile(user)
+Outputs parameter user object phone number and email address.
+Prompts the user to input a new phone number and email address.
+Updates the user object and database.
+Ex. of update_admin_profile() output:
+
+Current user profile for rebradshaw835:
+
+    Phone number: 1310203767
+    Email address: rebradshaw@mail.com
+
+Please enter a phone number (no spaces or dashes): 2345671234
+Please enter an email address: new_email@email.com
+create_account()
+Prompts the user to input the username of the new account. Verifies if the username is available.
+Prompts the user to choose account type.
+Prompts the user to input user profile details according to account type.
+Updates database.
+Ex. of create_account() output:
+
+Please enter the user_name of the new account: gwarner653
+gwarner653 is not available, please choose a different user_name: Guest
+Guest is not available, please choose a different user_name: aaopp55699
+Please enter a new password: 1234567
+Is this a customer account (Y/N)? N
+Please enter the first name: Aaron
+Please enter the last name: Opportunity
+Please enter an email address: arron@opportunity.net
+Please enter a phone number: 4105209630
+Please enter employee ID: FV1005
+delete_account(user)
+Prompts the user to input username of the account to be deleted.
+Confirms with user about account deletion.
+Updates database.
+Only existing accounts can be deleted, and a user cannot delete their own account.
+Ex. of delete_account() output:
+
+Please enter the user_name of the account to be deleted: gwarner653
+Account of gwarner653 will be removed. Are you sure (Y/N)? Y
+Account of gwarner653 removed.
+manage_accounts(user)
+Presents 5 options for the user to choose from: update user's own profile, update customer profile, create an account, delete an account, and return to employee menu.
+Continues to prompt the user if user input is invalid.
+Calls the appropriate instance methods according to the choice of the user.
+To update customer profile, prompts the user to input the customer's username. Validates the username before proceeding.
+Repeats the menu after operation of user's choice has been completed.
+Ex. of manage_accounts() output when the user chooses to update a customer profile:
+
+Manage accounts - choose an option:
+    Update your profile - Enter 1
+    Update customer profile  - Enter 2
+    Create an account  - Enter 3
+    Delete an account - Enter 4
+    Return to employee menu - Enter 5
+2
+Manage Customer Profile
+Please enter the user_name of customer: abcde
+Customer not found.
+Please enter the user_name of customer: gwarner653
+Implement the following methods for the Customer class:
+update_customer_profile(user)
+Outputs parameter user object credit card number, expiration date, billing address, phone number and email address.
+Prompts the user to input a new credit card number, expiration date, billing address, phone number and email address.
+Updates user object and database.
+Ex. of update_customer_profile() output:
+
+Current user profile for gwarner653:
+
+    Credit card number: 4562581857428221
+    Expiration date: 0722
+    Billing address: 226 Panda St, Happy Town, HC 59999
+    Phone number: 1640245578
+    Email address: gwarner@mail.com
+
+Please enter a credit card number (no spaces or dashes): 1111222233334444
+Please enter an expiration date (MMYY): 0525
+Please enter a billing address: 123 Happy St, Happy Town, HH 12345
+Please enter a phone number (no spaces or dashes): 2223334444
+Please enter an email address: gwarner@mail.com
+Step 6: Implement login methods for the FoodVendor class in FoodVendor.py
+Implement the following additional methods for the FoodVendor class:
+admin_login()
+Prompts the user to input a username and password.
+Prompts the user to re-enter username and password if the username does not exist, the user is a customer, or if the password is incorrect.
+The user has a maximum of 3 attempts to login. Program will exit after 3 failed attempts.
+Returns an Admin object after successful login.
+Ex. of output from admin_login() after 3 failed login attempts:
+
+Please enter your user_name: abcdefg
+Please enter your password: 1234567
+Admin account not found or password mismatch! Please check your user_name and password.
+Please enter your user_name: gwarner653
+Please enter your password: zJk@rAvu4a
+Admin account not found or password mismatch! Please check your username and password.
+Please enter your user_name: rebradshaw835
+Please enter your password: 1234567
+You have reached the maximum number of login attempts. Goodbye!
+customer_login()
+Prompts the user to input a username and password.
+Prompts the user to re-enter username and password if the username does not exist, the user is an admin user, or if the password is incorrect.
+The user has a maximum of 3 attempts to login. Program will exit after 3 failed attempts.
+Returns a Customer object after successful login.
+Ex. of customer_login() output:
+
+Please enter your user_name: gwarner653
+Please enter your password: zJk@rAvu4a
+
+5.1 Capstone Project Milestone 3
+
+5.1.1: Implementing FoodVendor Menu
+
+Milestone 3
+Copy and paste your Milestone 2 program into the respective files for this Milestone. Note that this Milestone requires a fully functioning Milestone 2 program to be able to be properly unit tested. Ensure that your Milestone 2 program passes all previous unit tests before continuing.
+
+This Milestone uses incremental programming. Also unlike previous Milestones, certain methods' unit tests will rely on other methods functionality (i.e. menus), while others will be tested independently. It is recommended to submit the program after each major step (or even during a major step) so as to ensure the implemented methods each function properly.
+
+As in Milestones 1 and 2, use the main method in FoodVendory.py to test the functionality of the program.
+
+Step 1: Implement additional methods for Admin class in Users.py
+Implement the following additional methods for the Admin class relating to altering the food menu:
+
+insert_food_item()
+Prompts the user to choose a food category.
+Asks if the new item is a side option. Append "_option" to the category name for side option items. Drinks do not have side options.
+Prompts the user to input information on the new item.
+Inserts the new item into the database.
+Ex. of insert_food_item() output:
+
+Please choose a food category:
+    Sandwiches - Enter 1
+    Salads - Enter 2
+    Drinks - Enter 3
+    Mexican food - Enter 4
+    Vegetarian - Enter 5
+    Return to previous menu - Enter 6
+1
+Is this a side option (Y/N)? N
+Please enter the name of the food item: Spicy Tuna
+Please enter the description of food item: Seared tuna with flaming hot sauce.
+Please enter the price of the food item: 15.99
+Please enter the prep time of the food item (in minutes): 8
+Do you want to make this item available in the daily menu (Y/N)? Y
+manage_menu()
+Presents 5 options for the user to choose from: insert new food item, update food price, update food description, update food availability, and return to employee menu.
+Continues to prompt the user if user input is invalid.
+Prompts the user for further input according to the choice of the user and validates the user input.
+Calls the appropriate instance methods according to the choice of the user.
+Repeats the menu after operations of user's choice has completed.
+Ex. of manage_menu() output when the user chooses to update the price of a food item but enters an incorrect food name:
+
+Manage Food menu - choose an option:
+    Insert new food item - Enter 1
+    Update food price  - Enter 2
+    Update food description  - Enter 3
+    Update food availability for daily menu - Enter 4
+    Return to employee menu - Enter 5
+2
+Enter the name of the item for price change: Chicken burger
+Chicken burger is not on the menu, please enter an item on the menu: Cheeseburger
+Enter new price: 6.99
+Step 2: Implement ordering-related methods for FoodVendor class in FoodVendor.py
+The FoodVendor class has the following additional specifications:
+
+Attribute
+receipt_number(integer) - receipt number
+Initialized to 1000 at the start of the program. Value is incremented by one when an order is made.
+Instance methods
+__init__()
+Default constructor of FoodVendor to initialize receipt_number to 1000.
+create_receipt(list, user, reward)
+Creates a new text file with the file name: FoodVendorReceiptX.txt, where X is the receipt number of the user.
+Outputs the company name, "FOOD VENDOR", with a width of 21 characters.
+Outputs the user's information using the __str__() method from the Customer object.
+Outputs the receipt number. Receipt number is incremented by 1 every time a receipt is created.
+Outputs the current date and time using the following format: Day, MM/DD/YY, HH:MM:SS AM/PM. (Hint: Use the datetime module from Python)
+Outputs a list of food item names along with prices. Food item names are stored in the parameter list. Set the width of the food item names to 25 characters, left aligned. Set the width of the food item price to 5 characters with 2 decimal places of accuracy.
+Outputs the total cost for a guest user. Set the width of "Total" as 25 characters.
+Outputs the subtotal, rewards redeemed, and total cost for a user with an account. Set the width of the "Subtotal", "Reward", and "Total" to 25 characters. Rewards redeemed value is calculated as 10% of the reward parameter.
+Outputs the credit card number, with only the last 4 digits revealed.
+Outputs the reward points earned from the order for a user with an account. Rewards are calculated as 5% of the total cost.
+Outputs the expected wait time.
+Outputs a thank you statement.
+For a user with an account, updates reward points and order history for the Customer object and database.
+For an example for the receipt format, refer to the file FoodVendorReceipt1001.txt.
+
+print_order_history(user)
+Retrieves the order history of user parameter from the database. A Customer object's order history is the same as the receipt number.
+Open the receipt file and outputs the content of the receipt.
+order_food(user)
+Declares a list to save the names of the ordered items.
+Prompts the user to choose a food category.
+Displays the daily menu of the chosen food category.
+Prompts the user to input the name of any menu item or "None" to return.
+Adds the item's name to the list, if item exists and is available.
+Displays the daily menu for the side options category. Drinks do not have any options.
+Prompts the user to input any menu item or "None".
+Adds the side option item's name to the list, if item exists and is available.
+Repeats the order process until check-out or until the exit option is chosen.
+Returns from method if no food is ordered.
+Before check-out, prompts the guest user to input payment information (credit card number, expiration date, billing address, phone number, and email address).
+For a user with an account, displays the reward points the user has and prompts the user to input the amount of points to be redeemed. Check if input is valid.
+Call create_receipt() method to process check-out.
+Ex. of order_food() output with a guest user:
+
+Daily Menu
+
+Choose a category:
+    Sandwiches - Enter 1
+    Salads - Enter 2
+    Vegetarian - Enter 3
+    Mexican Food - Enter 4
+    Drink - Enter 5
+    Check-out or exit - Enter 6
+2
+Salads:
+    Caesar ($15.7)
+       Caesar salad and dressing
+
+    Cajun ($16.7)
+       Caesar salad and dressing
+
+Enter the name of item you'd like to order, or "None" to return to the previous menu. Cajun
+Cajun added to order.
+
+Would you like to add any of these options to your order?
+Salads_option:
+    Chicken ($5.99)
+       Add charbroiled chicken strips
+
+    Beef ($6.99)
+       Add steak
+
+    Fish ($7.99)
+        Add charbroiled chicken strips
+
+Enter the name of option item you'd like to order, or "None" to return to the previous menu. Beef
+Beef added to order.
+
+. . .
+
+Daily Menu
+
+Choose a category:
+    Sandwiches - Enter 1
+    Salads - Enter 2
+    Vegetarian - Enter 3
+    Mexican Food - Enter 4
+    Drink - Enter 5
+    Check-out or exit - Enter 6
+6
+
+Please enter a credit card number (no spaces or dashes): 2222555588887777
+Please enter an expiration date (MMYY): 1025
+Please enter a billing address: 321 A St, B City, CC 11222
+Please enter a phone number (no spaces or dashes): 3211234567
+Please enter an email address: guest@mail.com
+Your order has been placed. Please take your receipt.
+Ex. of order_food() output with a user with an account:
+
+. . .
+
+Daily Menu
+
+Choose a category:
+    Sandwiches - Enter 1
+    Salads - Enter 2
+    Vegetarian - Enter 3
+    Mexican Food - Enter 4
+    Drink - Enter 5
+    Check-out or exit - Enter 6
+6
+You currently have 30 Reward Points. Please enter the number of Reward Points you want to redeem. 10
+Your order has been placed. Please take your receipt.
+Step 3: Implement user menu methods in FoodVendor.py and Users.py
+Implement the following methods for user menus for the FoodVendor class in FoodVendor.py:
+member_menu(user)
+Welcomes user by the user's first name.
+Displays the reward points the user has.
+Presents 4 options for the user to choose from: place order, view the last order history, update profile, and logout to return to main menu.
+Continues to prompt the user if user input is invalid.
+Calls the appropriate instance methods according to the choice of the user.
+Repeats the menu after viewing the last order history or after updating profile has been completed. Users will not see this menu after ordering food.
+Ex. of member_menu() output when the user inputs an invalid option:
+
+Welcome back, Gwion!
+You have 30 points in reward. Don't forget to use them!
+What would you like to do?
+    Place an order - Enter 1
+    View last order history - Enter 2
+    Update profile - Enter 3
+    Logout and return to main menu - Enter 4
+5
+Please enter a valid option (1 - 3):
+    Place an order - Enter 1
+    View last order history - Enter 2
+    Update profile - Enter 3
+    Logout and return to main menu - Enter 4
+1
+
+Daily Menu
+
+...
+main_menu()
+Displays a welcome message.
+Presents 4 options for the user to choose from: customer login, place order as a guest, manage system, and leave the store.
+Continues to prompt the user if user input is invalid.
+Returns the user's choice as an integer.
+Ex. of main_menu() output:
+
+Welcome to the Food Vendor!
+Choose an option to begin.
+    Customer login - Enter 1
+    Place an order as a guest - Enter 2
+    Manage system (admin sign-in required) - Enter 3
+    Leave the Food Vendor - Enter 4
+Implement the following method for the Admin class in Users.py:
+admin_menu(user)
+Displays the user's information using the __str__() method of the user object.
+Presents 3 options for the user to choose from: manage user accounts, manage food menu, and logout to return to main menu.
+Continues to prompt the user if user input is invalid.
+Calls the appropriate instance methods according to the choice of the user.
+Repeats the menu after operations of user's choice has completed.
+Ex. of admin_menu() output:
+
+Reagan Bradshaw: rebradshaw835, Employee ID: FV1001
+
+Admin menu - What would you like to do?
+    Manage user accounts - Enter 1
+    Manage food menu - Enter 2
+    Logout and return to main menu - Enter 3
+1
+
+Manage accounts
+...
+Step 4: Implement main method in FoodVendor.py
+Complete the main method in FoodVendor.py with the following specifications:
+
+__main__
+Declares a FoodVendor instance
+Initializes the database.
+Calls main_menu()to prompt the user's input choice.
+If the user chooses to login as a customer, perform the login process. Take the user to the member menu after successful login.
+If the user chooses to place an order as a guest, instantiate a Customer object for guests. (Hint: Use the default constructor.) Take the guest user to order food.
+If the user chooses to manage the system, perform the login process as an admin user. Take the user to the admin menu after successful login.
+The program will always return to the main menu after all operations, except for login failure.
+If the user decides to exit, display "See you next time!" before the program terminates.
+Ex. of the output of the program:
+
+Welcome to the Food Vendor!
+Choose an option to begin.
+    Customer login - Enter 1
+    Place an order as a guest - Enter 2
+    Manage system (admin sign-in required) - Enter 3
+    Leave Food Vendor - Enter 4
+2
+
+Daily Menu
+
+Choose a category:
+    Sandwiches - Enter 1
+    Salads - Enter 2
+    Vegetarian - Enter 3
+    Mexican Food - Enter 4
+    Drink - Enter 5
+    Check-out or exit - Enter 6
+
+. . .
+
+Please enter the credit card number (no space or dash): 2222444466668888
+Please enter the expiration date (MMYY): 0122
+Please enter the billing address: 123 Joy Rd, Merryland, HS54321
+Please enter the phone number (no space or dash): 3213213210
+Please enter the email address: somebody@mail.com
+Your order has been placed. Please take your receipt.
+
+Welcome to the Food Vendor!
+Choose an option to begin.
+    Customer login - Enter 1
+    Place an order as a guest - Enter 2
+    Manage system (admin sign-in required) - Enter 3
+    Leave Food Vendor - Enter 4
+4
+See you next time!
