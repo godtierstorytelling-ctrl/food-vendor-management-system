@@ -15,7 +15,7 @@ The project was originally developed as a software development capstone and late
 
 ## Application Preview
 
-![Food Vendor Main Menu](docs/images/Food-Vendor-App.png)
+![Food Vendor Main Menu](docs/images/FoodVendorApp.png)
 
 ---
 
