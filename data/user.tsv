@@ -1,0 +1,11 @@
+user_name	account_type	first_name	last_name	email	phone_number	password	employee_id	credit_card_number	credit_card_exp_date	billing_address	reward_points	order_history
+customer	customer	first	last	customer@email.com	3213213210	password		1234567890123456	123	123 Address	55	4
+admin	admin	afirst	alast	admin@email.com	1111111111	password	FV1001					
+ebarrett535	admin	Edan	Barrett	ebarrett@mail.com	2297172631	$9r6Z9b6dm	FV1002					
+rbarber894	admin	Ryley	Barber	rbarber@mail.com	4711065047	eYZYw9sw6j	FV1003					
+gholder487	customer	Guto	Holder	gholder@mail.com	5846954541	$eY6WF962K		4444333322221111	1122	"374 Rabbit Ave, Happy Town, HC 59999"	33	8
+pstott885	customer	Peyton	Stott	pstott@mail.com	2979267044	GomSYyLQrl		8888777766665555	828	"590 Panda St, Happy Town, HC 59999"	65	7
+tmayo945	customer	Tyrese	Mayo	tmayo@mail.com	1129970910	nCM4I8TWoC		9876543210987654	821	"149 Alligator St, Happy Town, HC 59999"	51	9
+mpreston272	customer	Mcauley	Preston	mpreston@mail.com	5382696423	pW#1F8x$hX		5555666677778888	927	"457 Panda Ct, Happy Town, HC 59999"	26	6
+ccharlton329	admin	Caius	Charlton	ccharlton@mail.com	9499984867	4LFEAKSwgO	FV1004					
+colson812	customer	Coral	Olson	colson@mail.com	2601656197	AXpm3K@Y5v		1111222233334444	325	"118 Rabbit Ln, Happy Town, HC 59999"	66	5
